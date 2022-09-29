@@ -1,8 +1,11 @@
 <resources>
-    <string name="app_name">Placemark</string>
-    <string name="button_addPlacemark">Add Placemark</string>
-    <string name="hint_placemarkTitle">Placemark Title</string>
-    <string name="hint_placemarkDescription">Placemark Description</string>
+    <string name="app_name">Music Festivals</string>
+    <string name="button_addPlacemark">Add Festival</string>
+    <string name="hint_placemarkTitle">Festival Title</string>
+    <string name="hint_placemarkDescription">Festival Description</string>
     <string name="button_addDescription">Add Description</string>
-    <string name="hint_placemarkLocation">Placemark Location</string>
+    <string name="hint_placemarkLocation">Festival Location</string>
+    <string name="menu_addPlacemark">Add</string>
+    <string name="menu_cancelPlacemark">Cancel</string>
+
 </resources>
