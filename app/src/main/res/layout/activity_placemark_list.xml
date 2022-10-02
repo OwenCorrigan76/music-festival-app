@@ -20,7 +20,8 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:titleTextColor="@color/colorPrimary" />
+            app:titleTextColor="@color/colorPrimary"
+            android:fontFamily="sans-serif-black"/>
     </com.google.android.material.appbar.AppBarLayout>
 
     <!--Add the recycle view widget. When this file is loaded,

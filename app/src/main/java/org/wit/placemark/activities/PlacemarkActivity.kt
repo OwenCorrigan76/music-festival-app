@@ -11,7 +11,8 @@ import org.wit.placemark.R
 import org.wit.placemark.databinding.ActivityPlacemarkBinding
 import org.wit.placemark.main.MainApp
 import org.wit.placemark.models.PlacemarkModel
-
+import timber.log.Timber
+import timber.log.Timber.i
 
 class PlacemarkActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPlacemarkBinding
@@ -22,9 +23,12 @@ class PlacemarkActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityPlacemarkBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         binding.toolbarAdd.title = title
         setSupportActionBar(binding.toolbarAdd)
         app = application as MainApp
+
+        i("Placemark Activity started...")
 
         binding.btnAdd.setOnClickListener() {
             placemark.title = binding.placemarkTitle.text.toString()
@@ -32,12 +36,18 @@ class PlacemarkActivity : AppCompatActivity() {
             placemark.location = binding.location.text.toString()
 
             if (placemark.title.isNotEmpty()) {
+
                 app.placemarks.add(placemark.copy())
+                i("add Button Pressed: ${placemark}")
+                for (i in app.placemarks.indices) {
+                    i("Placemark[$i]:${this.app.placemarks[i]}")
+                }
                 setResult(RESULT_OK)
                 finish()
             }
             else {
-                Snackbar.make(it,"Please Enter a title", Snackbar.LENGTH_LONG)
+                Snackbar
+                    .make(it,"Please Enter a title", Snackbar.LENGTH_LONG)
                     .show()
             }
         }

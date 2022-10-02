@@ -75,6 +75,8 @@ class  PlacemarkListActivity : AppCompatActivity() {
             fun bind(placemark: PlacemarkModel) {
                 binding.placemarkTitle.text = placemark.title
                 binding.description.text = placemark.description
+                binding.location.text = placemark.location
+
             }
         }
     }
