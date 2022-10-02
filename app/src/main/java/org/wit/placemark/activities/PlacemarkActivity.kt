@@ -31,6 +31,7 @@ class PlacemarkActivity : AppCompatActivity() {
         i("Placemark Activity started...")
 
         binding.btnAdd.setOnClickListener() {
+            // take the text from the boxes concert to a String and bind to placemark.title etc
             placemark.title = binding.placemarkTitle.text.toString()
             placemark.description = binding.description.text.toString()
             placemark.location = binding.location.text.toString()
