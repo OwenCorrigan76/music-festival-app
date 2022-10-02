@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/colorPrimaryDark">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout"
@@ -52,7 +53,8 @@
                     android:padding="8dp"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="14sp"
-                    android:fontFamily="sans-serif-black"/>
+                    android:fontFamily="sans-serif"
+                    android:background="@color/orange"/>
 
                 <EditText
                     android:id="@+id/description"
@@ -67,8 +69,8 @@
                     android:padding="8dp"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="14sp"
-                    android:fontFamily="sans-serif-black"/>
-
+                    android:fontFamily="sans-serif"
+                    android:background="@color/orange"/>
 
                 <EditText
                     android:id="@+id/location"
@@ -83,14 +85,16 @@
                     android:padding="8dp"
                     android:textColor="@color/black"
                     android:textSize="14sp"
-                    android:fontFamily="sans-serif-black"/>
+                    android:fontFamily="sans-serif"
+                    android:background="@color/orange"/>
+
 
                 <Button
                     android:id="@+id/btnAdd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
-                    android:backgroundTint="@color/blue"
+                    android:backgroundTint="@color/purple_500"
                     android:paddingTop="8dp"
                     android:paddingBottom="8dp"
                     android:stateListAnimator="@null"

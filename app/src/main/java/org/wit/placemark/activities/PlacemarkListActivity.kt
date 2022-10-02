@@ -8,10 +8,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import org.wit.placemark.R
 import org.wit.placemark.adapters.PlacemarkAdapter
+import org.wit.placemark.adapters.PlacemarkListener
 import org.wit.placemark.databinding.ActivityPlacemarkListBinding
 import org.wit.placemark.main.MainApp
+import org.wit.placemark.models.PlacemarkModel
 
-class  PlacemarkListActivity : AppCompatActivity() {
+class PlacemarkListActivity : AppCompatActivity(), PlacemarkListener {
 
     lateinit var app: MainApp // declare main app, initialised below
     private lateinit var binding: ActivityPlacemarkListBinding
@@ -31,7 +33,8 @@ class  PlacemarkListActivity : AppCompatActivity() {
         binding.recyclerView.layoutManager = layoutManager
         // app.placemarks is where we get the count. Adapter
         // is set to PlacemarkAdapter (below). This line generates the list
-        binding.recyclerView.adapter = PlacemarkAdapter(app.placemarks)
+        binding.recyclerView.adapter = PlacemarkAdapter(app.placemarks.findAll(),this)
+
     }
     // R relates to the res folder. Below menuInflater inflates the xml file res/menu/menu_main/menu
     // inflate basically means it will be rendered by creating a view object
@@ -49,6 +52,11 @@ class  PlacemarkListActivity : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+    override fun onPlacemarkClick(placemark: PlacemarkModel) {
+        val launcherIntent = Intent(this, PlacemarkActivity::class.java)
+        launcherIntent.putExtra("placemark_edit", placemark) // put placemark, possible, due to parcelable
+        startActivityForResult(launcherIntent,0)
     }
 }
 

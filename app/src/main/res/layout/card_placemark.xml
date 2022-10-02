@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:elevation="24dp">
+
     <!--This is the card and it will be recycled. It has title, description and location -->
     <!--We only create this once and recycle it -->
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/orange"
         android:padding="16dp">
 
         <TextView
@@ -18,27 +21,26 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:fontFamily="sans-serif-black"
+            android:textStyle="bold"
             android:textSize="30sp"
             tools:text="A Title" />
-
 
         <TextView
             android:id="@+id/description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/placemarkTitle"
-            tools:text="A Description"
-            android:fontFamily="sans-serif-black"/>
-
+            android:fontFamily="sans-serif-black"
+            tools:text="A Description" />
 
         <TextView
             android:id="@+id/location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/description"
-            tools:text="A Location"
-            android:fontFamily="sans-serif-black"/>
-
+            android:fontFamily="sans-serif-black"
+            android:textStyle="italic"
+            tools:text="A Location" />
 
         <!--The three text views are nested within the card view -->
 
