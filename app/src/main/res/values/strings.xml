@@ -7,5 +7,6 @@
     <string name="hint_placemarkLocation">Festival Location</string>
     <string name="menu_addPlacemark">Music Festivals</string>
     <string name="menu_cancelPlacemark">Cancel</string>
+    <string name="enter_placemark_title">Please enter a festival title</string>
 
 </resources>

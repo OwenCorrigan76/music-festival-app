@@ -6,9 +6,10 @@
         <entry key="../../../../../layout/custom_preview.xml" value="0.10099637681159421" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.112" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.112" />
+        <entry key="app/src/main/res/font/fonts.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_placemark.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_placemark_list.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/card_placemark.xml" value="0.5839017735334243" />
+        <entry key="app/src/main/res/layout/card_placemark.xml" value="0.21428571428571427" />
         <entry key="app/src/main/res/layout/menu_main.xml" value="0.1" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.1921875" />
         <entry key="app/src/main/res/menu/menu_placemark.xml" value="0.1" />

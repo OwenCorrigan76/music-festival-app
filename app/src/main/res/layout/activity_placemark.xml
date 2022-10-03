@@ -46,15 +46,15 @@
                     android:layout_height="45dp"
                     android:layout_margin="8dp"
                     android:autofillHints=""
+                    android:background="@color/orange"
+                    android:fontFamily="sans-serif"
                     android:hint="@string/hint_placemarkTitle"
                     android:inputType="text"
                     android:maxLength="25"
                     android:maxLines="1"
                     android:padding="8dp"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="14sp"
-                    android:fontFamily="sans-serif"
-                    android:background="@color/orange"/>
+                    android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/description"
@@ -62,31 +62,31 @@
                     android:layout_height="45dp"
                     android:layout_margin="8dp"
                     android:autofillHints=""
+                    android:background="@color/orange"
+                    android:fontFamily="sans-serif"
                     android:hint="@string/hint_placemarkDescription"
                     android:inputType="text"
                     android:maxLength="25"
                     android:maxLines="1"
                     android:padding="8dp"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="14sp"
-                    android:fontFamily="sans-serif"
-                    android:background="@color/orange"/>
+                    android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/location"
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
+                    android:layout_height="55dp"
                     android:layout_margin="8dp"
                     android:autofillHints=""
+                    android:background="@color/orange"
+                    android:fontFamily="sans-serif"
                     android:hint="@string/hint_placemarkLocation"
                     android:inputType="text"
                     android:maxLength="25"
                     android:maxLines="1"
                     android:padding="8dp"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:fontFamily="sans-serif"
-                    android:background="@color/orange"/>
+                    android:textSize="14sp" />
 
 
                 <Button
@@ -95,13 +95,19 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:backgroundTint="@color/purple_500"
+                    android:fontFamily="@font/robot4"
                     android:paddingTop="8dp"
                     android:paddingBottom="8dp"
                     android:stateListAnimator="@null"
                     android:text="@string/button_addPlacemark"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="16sp"
-                    android:fontFamily="sans-serif-black"/>
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@android:drawable/btn_star_big_on" />
 
             </LinearLayout>
         </ScrollView>

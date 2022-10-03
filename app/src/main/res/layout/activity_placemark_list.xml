@@ -22,9 +22,11 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:titleTextColor="@color/colorPrimary"
-            android:fontFamily="sans-serif-black"/>
+            android:fontFamily="@font/robot4"
+            app:titleTextColor="@color/black"/>
+
     </com.google.android.material.appbar.AppBarLayout>
+
 
     <!--Add the recycle view widget. When this file is loaded,
     the recycler view is loaded and inflated -->

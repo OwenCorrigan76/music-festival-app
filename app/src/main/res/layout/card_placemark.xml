@@ -15,14 +15,16 @@
         android:background="@color/orange"
         android:padding="16dp">
 
+
         <TextView
             android:id="@+id/placemarkTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:fontFamily="sans-serif-black"
+            android:fontFamily="@font/robot4"
+            android:textSize="36sp"
+            android:textColor="@color/black"
             android:textStyle="bold"
-            android:textSize="30sp"
             tools:text="A Title" />
 
         <TextView
@@ -30,7 +32,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/placemarkTitle"
-            android:fontFamily="sans-serif-black"
+            android:fontFamily="@font/alien2"
+            android:textColor="@color/black"
             tools:text="A Description" />
 
         <TextView
@@ -38,8 +41,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/description"
-            android:fontFamily="sans-serif-black"
+            android:fontFamily="@font/alien3"
             android:textStyle="italic"
+            android:textColor="@color/black"
             tools:text="A Location" />
 
         <!--The three text views are nested within the card view -->
