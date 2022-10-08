@@ -1,12 +1,16 @@
 <resources>
     <string name="app_name">Music Festivals</string>
-    <string name="button_addPlacemark">Add A Festival</string>
-    <string name="hint_placemarkTitle">Festival Title</string>
-    <string name="hint_placemarkDescription">Festival Description</string>
+    <string name="button_addFestival">Add A Festival</string>
+    <string name="hint_festivalTitle">Festival Title</string>
+    <string name="hint_festivalDescription">Festival Description</string>
     <string name="button_addDescription">Add Description</string>
-    <string name="hint_placemarkLocation">Festival Location</string>
-    <string name="menu_addPlacemark">Music Festivals</string>
-    <string name="menu_cancelPlacemark">Cancel</string>
-    <string name="enter_placemark_title">Please enter a festival title</string>
-
+    <string name="hint_festivalLocation">Festival Location</string>
+    <string name="menu_addFestival">Music Festivals</string>
+    <string name="menu_cancelFestival">Cancel</string>
+    <string name="menu_profileFestival">Profile</string>
+    <string name="enter_festival_title">Please enter a festival title</string>
+    <string name="enter_festival_value">Please Enter a value</string>
+    <string name="save_festival">Save a Festival</string>
+    <string name="button_addImage">Add an Image</string>
+    <string name="select_festival_image">Select festival image</string>
 </resources>

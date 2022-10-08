@@ -1,4 +1,4 @@
-package org.wit.placemark
+package org.wit.festival
 
 import org.junit.Test
 

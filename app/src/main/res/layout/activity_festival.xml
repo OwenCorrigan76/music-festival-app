@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.wit.placemark.activities.PlacemarkActivity">
+    tools:context=".activities.FestivalActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/colorPrimaryDark">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout"
@@ -40,54 +40,75 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <EditText
-                    android:id="@+id/placemarkTitle"
+                <ImageView
+                    android:id="@+id/festivalImage"
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@mipmap/ic_launcher" />
+
+                <Button
+                    android:id="@+id/chooseImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:backgroundTint="@color/purple_500"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:stateListAnimator="@null"
+                    android:text="@string/button_addImage"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/festivalTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
                     android:layout_margin="8dp"
                     android:autofillHints=""
-                    android:background="@color/orange"
-                    android:fontFamily="sans-serif"
-                    android:hint="@string/hint_placemarkTitle"
+                    android:background="@color/torq"
+                    android:hint="@string/hint_festivalTitle"
                     android:inputType="text"
-                    android:maxLength="25"
+                    android:maxLength="30"
                     android:maxLines="1"
                     android:padding="8dp"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="14sp" />
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:textColor="@color/black"
+                    android:textSize="24sp" />
 
                 <EditText
                     android:id="@+id/description"
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
+                    android:layout_height="65dp"
                     android:layout_margin="8dp"
                     android:autofillHints=""
-                    android:background="@color/orange"
-                    android:fontFamily="sans-serif"
-                    android:hint="@string/hint_placemarkDescription"
+                    android:background="@color/torq"
+                    android:hint="@string/hint_festivalDescription"
                     android:inputType="text"
-                    android:maxLength="25"
+                    android:maxLength="30"
                     android:maxLines="1"
                     android:padding="8dp"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="14sp" />
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:textColor="@color/black"
+                    android:textSize="24sp" />
 
                 <EditText
                     android:id="@+id/location"
                     android:layout_width="match_parent"
-                    android:layout_height="55dp"
+                    android:layout_height="65dp"
                     android:layout_margin="8dp"
                     android:autofillHints=""
-                    android:background="@color/orange"
-                    android:fontFamily="sans-serif"
-                    android:hint="@string/hint_placemarkLocation"
+                    android:background="@color/torq"
+                    android:hint="@string/hint_festivalLocation"
                     android:inputType="text"
-                    android:maxLength="25"
+                    android:maxLength="30"
                     android:maxLines="1"
                     android:padding="8dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
                     android:textColor="@color/black"
-                    android:textSize="14sp" />
-
+                    android:textSize="24sp" />
 
                 <Button
                     android:id="@+id/btnAdd"
@@ -95,19 +116,13 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:backgroundTint="@color/purple_500"
-                    android:fontFamily="@font/robot4"
                     android:paddingTop="8dp"
                     android:paddingBottom="8dp"
                     android:stateListAnimator="@null"
-                    android:text="@string/button_addPlacemark"
+                    android:text="@string/button_addFestival"
                     android:textColor="@color/colorPrimary"
                     android:textSize="16sp" />
 
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@android:drawable/btn_star_big_on" />
 
             </LinearLayout>
         </ScrollView>
