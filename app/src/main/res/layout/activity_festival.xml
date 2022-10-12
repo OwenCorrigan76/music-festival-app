@@ -33,6 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/appBarLayout"
+            android:layout_marginTop="61dp"
             android:fillViewport="true">
 
             <LinearLayout
@@ -75,6 +76,7 @@
                     android:paddingBottom="2dp"
                     android:textColor="@color/black"
                     android:textSize="24sp" />
+
 
                 <EditText
                     android:id="@+id/description"

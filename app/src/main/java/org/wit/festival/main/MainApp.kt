@@ -18,8 +18,8 @@ class MainApp : Application() {
         super.onCreate()
         Timber.plant(Timber.DebugTree())
         i("Festival started")
-        festivals.create(FestivalModel(0, "ATN", "Music Festival", "Waterford"))
-        festivals.create(FestivalModel(1, "Electric Picnic", "Music Festival", "Stradbally"))
-        festivals.create(FestivalModel(2, "Body and Soul", "Music Festival", "Westmeath"))
+      //  festivals.create(FestivalModel(0, "ATN", "Music Festival", "Waterford"))
+      //  festivals.create(FestivalModel(1, "Electric Picnic", "Music Festival", "Stradbally"))
+      //  festivals.create(FestivalModel(2, "Body and Soul", "Music Festival", "Westmeath"))
     }
 }

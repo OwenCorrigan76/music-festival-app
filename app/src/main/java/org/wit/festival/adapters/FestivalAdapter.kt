@@ -4,6 +4,7 @@ package org.wit.festival.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import org.wit.festival.models.FestivalModel
 import org.wit.festival.databinding.CardFestivalBinding
 
@@ -37,10 +38,11 @@ class FestivalAdapter constructor(private var festivals: List<FestivalModel>,
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(festival: FestivalModel, listener: FestivalListener) {
-            // bind title to festival.title etc
+            // bind to the card
             binding.festivalTitle.text = festival.title
             binding.description.text = festival.description
             binding.location.text = festival.location
+            Picasso.get().load(festival.image).resize(200,200).into(binding.imageIcon)
             binding.root.setOnClickListener { listener.onFestivalClick(festival) }
 
         }

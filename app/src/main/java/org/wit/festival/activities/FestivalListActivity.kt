@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import org.wit.festival.R
@@ -18,6 +20,7 @@ class FestivalListActivity : AppCompatActivity(), FestivalListener {
 
     lateinit var app: MainApp
     private lateinit var binding: ActivityFestivalListBinding
+    private lateinit var refreshIntentLauncher : ActivityResultLauncher<Intent>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +34,7 @@ class FestivalListActivity : AppCompatActivity(), FestivalListener {
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
         binding.recyclerView.adapter = FestivalAdapter(app.festivals.findAll(),this)
+        registerRefreshCallback()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -42,7 +46,7 @@ class FestivalListActivity : AppCompatActivity(), FestivalListener {
         when (item.itemId) {
             R.id.item_add -> {
                 val launcherIntent = Intent(this, FestivalActivity::class.java)
-                startActivityForResult(launcherIntent,0)
+                refreshIntentLauncher.launch(launcherIntent)
             }
         }
         return super.onOptionsItemSelected(item)
@@ -51,11 +55,16 @@ class FestivalListActivity : AppCompatActivity(), FestivalListener {
     override fun onFestivalClick(festival: FestivalModel) {
         val launcherIntent = Intent(this, FestivalActivity::class.java)
         launcherIntent.putExtra("festival_edit", festival)
-        startActivityForResult(launcherIntent,0)
+        refreshIntentLauncher.launch(launcherIntent)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    /*override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         binding.recyclerView.adapter?.notifyDataSetChanged()
         super.onActivityResult(requestCode, resultCode, data)
+    }*/
+    private fun registerRefreshCallback() {
+        refreshIntentLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult())
+            { binding.recyclerView.adapter?.notifyDataSetChanged() }
     }
 }

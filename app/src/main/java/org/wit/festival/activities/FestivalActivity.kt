@@ -1,6 +1,7 @@
 package org.wit.festival.activities
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -24,7 +25,7 @@ class FestivalActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFestivalBinding
     var festival = FestivalModel()
     lateinit var app: MainApp
-    private lateinit var imageIntentLauncher : ActivityResultLauncher<Intent>
+    private lateinit var imageIntentLauncher: ActivityResultLauncher<Intent>
     val IMAGE_REQUEST = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,6 +52,9 @@ class FestivalActivity : AppCompatActivity() {
             Picasso.get()
                 .load(festival.image)
                 .into(binding.festivalImage)
+            if (festival.image != Uri.EMPTY) {
+                binding.chooseImage.setText(R.string.change_festival_image)
+            }
         }
 
         binding.btnAdd.setOnClickListener() {
@@ -58,7 +62,7 @@ class FestivalActivity : AppCompatActivity() {
             festival.description = binding.description.text.toString()
             festival.location = binding.location.text.toString()
             if (festival.title.isEmpty()) {
-                Snackbar.make(it,R.string.enter_festival_title, Snackbar.LENGTH_LONG)
+                Snackbar.make(it, R.string.enter_festival_title, Snackbar.LENGTH_LONG)
                     .show()
             } else {
                 if (edit) {
@@ -97,7 +101,7 @@ class FestivalActivity : AppCompatActivity() {
         imageIntentLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult())
             { result ->
-                when(result.resultCode){
+                when (result.resultCode) {
                     RESULT_OK -> {
                         if (result.data != null) {
                             i("Got Result ${result.data!!.data}")
@@ -105,9 +109,12 @@ class FestivalActivity : AppCompatActivity() {
                             Picasso.get()
                                 .load(festival.image)
                                 .into(binding.festivalImage)
+                            binding.chooseImage.setText(R.string.change_festival_image)
+
                         } // end of if
                     }
-                    RESULT_CANCELED -> { } else -> { }
+                    RESULT_CANCELED -> {}
+                    else -> {}
                 }
             }
     }

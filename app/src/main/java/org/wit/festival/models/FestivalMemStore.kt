@@ -28,6 +28,7 @@ class FestivalMemStore : FestivalStore {
             foundFestival.title = festival.title
             foundFestival.description = festival.description
             foundFestival.location = festival.location
+            foundFestival.image = festival.image
             logAll()
         }
     }
