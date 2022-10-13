@@ -26,6 +26,8 @@ class FestivalActivity : AppCompatActivity() {
     var festival = FestivalModel()
     lateinit var app: MainApp
     private lateinit var imageIntentLauncher: ActivityResultLauncher<Intent>
+    private lateinit var mapIntentLauncher: ActivityResultLauncher<Intent>
+
     val IMAGE_REQUEST = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,6 +51,9 @@ class FestivalActivity : AppCompatActivity() {
             binding.description.setText(festival.description)
             binding.location.setText(festival.location)
             binding.btnAdd.setText(R.string.save_festival)
+            binding.festivalLocation.setOnClickListener {
+                i("Set Location Pressed")
+            }
             Picasso.get()
                 .load(festival.image)
                 .into(binding.festivalImage)
@@ -80,7 +85,12 @@ class FestivalActivity : AppCompatActivity() {
             showImagePicker(imageIntentLauncher)
         }
 
+        binding.festivalLocation.setOnClickListener {
+            val launcherIntent = Intent(this, MapActivity::class.java)
+            mapIntentLauncher.launch(launcherIntent)
+        }
         registerImagePickerCallback()
+        registerMapCallback()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -117,5 +127,11 @@ class FestivalActivity : AppCompatActivity() {
                     else -> {}
                 }
             }
+    }
+
+    private fun registerMapCallback() {
+        mapIntentLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult())
+            { i("Map Loaded") }
     }
 }

@@ -1,6 +1,7 @@
 package org.wit.festival.adapters
 // gets the data from the model and shows it to the user
 // adapters are a good way of connecting a view to a data source
+// this adapter turns one card into three (or whatever the amount is)
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -19,6 +20,7 @@ class FestivalAdapter constructor(private var festivals: List<FestivalModel>,
     // when this is called, based on the amount in getItemCount() below,
     // a new card layout is inflated
     // and the data is binded - see bind function below
+    //recycler view allows us to scroll
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {

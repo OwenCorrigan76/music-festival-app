@@ -1,9 +1,6 @@
-// for application object
-
 package org.wit.festival.main
 
 import android.app.Application
-import org.wit.festival.models.FestivalModel
 import org.wit.festival.models.FestivalMemStore
 import timber.log.Timber
 import timber.log.Timber.i
