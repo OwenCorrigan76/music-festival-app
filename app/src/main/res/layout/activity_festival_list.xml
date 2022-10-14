@@ -26,7 +26,6 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-
     <!--Add the recycle view widget. When this file is loaded,
     the recycler view is loaded and inflated -->
     <androidx.recyclerview.widget.RecyclerView

@@ -43,7 +43,7 @@ class FestivalAdapter constructor(private var festivals: List<FestivalModel>,
             // bind to the card
             binding.festivalTitle.text = festival.title
             binding.description.text = festival.description
-            binding.location.text = festival.location
+            binding.county.text = festival.county
             Picasso.get().load(festival.image).resize(200,200).into(binding.imageIcon)
             binding.root.setOnClickListener { listener.onFestivalClick(festival) }
 

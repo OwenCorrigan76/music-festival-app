@@ -5,6 +5,8 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import org.wit.festival.R
 
@@ -17,6 +19,7 @@ import org.wit.festival.databinding.ActivityFestivalBinding
 import org.wit.festival.helpers.showImagePicker
 import org.wit.festival.main.MainApp
 import org.wit.festival.models.FestivalModel
+import org.wit.festival.models.Location
 
 import timber.log.Timber.i
 
@@ -25,16 +28,29 @@ class FestivalActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFestivalBinding
     var festival = FestivalModel()
     lateinit var app: MainApp
-    private lateinit var imageIntentLauncher: ActivityResultLauncher<Intent>
-    private lateinit var mapIntentLauncher: ActivityResultLauncher<Intent>
-
+    private lateinit var imageIntentLauncher: ActivityResultLauncher<Intent> // initialise
+    private lateinit var mapIntentLauncher: ActivityResultLauncher<Intent> // initialise
+    var location = Location(52.245696, -7.139102, 15f)
     val IMAGE_REQUEST = 1
+  //  val spinner: Spinner = findViewById(R.id.spinner_counties)
+
+// Create an ArrayAdapter using the string array and a default spinner layout
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+      /*  ArrayAdapter.createFromResource(
+            this,
+            R.array.counties,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            // Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            // Apply the adapter to the spinner
+            spinner.adapter = adapter
+        }*/
         var edit = false
-
         binding = ActivityFestivalBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.toolbarAdd.title = title
@@ -42,14 +58,14 @@ class FestivalActivity : AppCompatActivity() {
 
         app = application as MainApp
 
-        i("Festival Activity started...")
+        i("Festival Activity has started...")
 
         if (intent.hasExtra("festival_edit")) {
             edit = true
             festival = intent.extras?.getParcelable("festival_edit")!!
             binding.festivalTitle.setText(festival.title)
             binding.description.setText(festival.description)
-            binding.location.setText(festival.location)
+            binding.county.setText(festival.county)
             binding.btnAdd.setText(R.string.save_festival)
             binding.festivalLocation.setOnClickListener {
                 i("Set Location Pressed")
@@ -65,7 +81,7 @@ class FestivalActivity : AppCompatActivity() {
         binding.btnAdd.setOnClickListener() {
             festival.title = binding.festivalTitle.text.toString()
             festival.description = binding.description.text.toString()
-            festival.location = binding.location.text.toString()
+            festival.county = binding.county.text.toString()
             if (festival.title.isEmpty()) {
                 Snackbar.make(it, R.string.enter_festival_title, Snackbar.LENGTH_LONG)
                     .show()
@@ -85,8 +101,9 @@ class FestivalActivity : AppCompatActivity() {
             showImagePicker(imageIntentLauncher)
         }
 
-        binding.festivalLocation.setOnClickListener {
+        binding.festivalLocation.setOnClickListener { // launch maps and pass location to MapActivity
             val launcherIntent = Intent(this, MapActivity::class.java)
+                .putExtra("location", location)
             mapIntentLauncher.launch(launcherIntent)
         }
         registerImagePickerCallback()
@@ -132,6 +149,18 @@ class FestivalActivity : AppCompatActivity() {
     private fun registerMapCallback() {
         mapIntentLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult())
-            { i("Map Loaded") }
+            { result ->
+                when (result.resultCode) {
+                    RESULT_OK -> {
+                        if (result.data != null) {
+                            i("Got Location ${result.data.toString()}")
+                            location = result.data!!.extras?.getParcelable("location")!!
+                            i("Location == $location")
+                        }
+                    }
+                    RESULT_CANCELED -> {}
+                    else -> {}
+                }
+            }
     }
 }

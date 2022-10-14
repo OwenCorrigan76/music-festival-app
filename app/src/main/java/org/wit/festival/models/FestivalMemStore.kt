@@ -27,7 +27,7 @@ class FestivalMemStore : FestivalStore {
         if (foundFestival != null) {
             foundFestival.title = festival.title
             foundFestival.description = festival.description
-            foundFestival.location = festival.location
+            foundFestival.county = festival.county
             foundFestival.image = festival.image
             logAll()
         }
