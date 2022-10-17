@@ -11,7 +11,10 @@ data class FestivalModel(
     var description: String = "",
     var county: String = "",
     var countyPicker: String = "",
-    var image: Uri = Uri.EMPTY  // default value is empti Uri
+    var image: Uri = Uri.EMPTY,  // default value is empti Uri
+    var lat: Double = 0.0,
+    var lng: Double = 0.0,
+    var zoom: Float = 0f
 ) : Parcelable
 
 @Parcelize

@@ -2,6 +2,7 @@
     <string name="app_name">Festivals Ireland</string>
     <string name="button_addFestival">Add Festival</string>
     <string name="hint_festivalTitle">Name</string>
+    <string name="hint_date">Date</string>
     <string name="hint_festivalDescription">Type</string>
     <string name="button_addDescription">Add Description</string>
     <string name="hint_festivalLocation">County</string>
@@ -19,7 +20,7 @@
     <string name="button_location">Set Location</string>
     <string name="title_activity_map">MapActivity</string>
 
-    <string-array name="counties">
+    <string-array name="counties_list">
         <item>Antrim</item>
         <item>Armagh</item>
         <item>Carlow</item>

@@ -12,13 +12,13 @@ import org.wit.festival.R
 import org.wit.festival.adapters.FestivalAdapter
 import org.wit.festival.adapters.FestivalListener
 import org.wit.festival.databinding.ActivityFestivalListBinding
-import org.wit.festival.main.MainApp
+import org.wit.festival.main.FestivalApp
 import org.wit.festival.models.FestivalModel
 
 
 class FestivalListActivity : AppCompatActivity(), FestivalListener {
 
-    lateinit var app: MainApp
+    lateinit var app: FestivalApp
     private lateinit var binding: ActivityFestivalListBinding
     private lateinit var refreshIntentLauncher : ActivityResultLauncher<Intent>
 
@@ -29,14 +29,14 @@ class FestivalListActivity : AppCompatActivity(), FestivalListener {
         binding.toolbar.title = title
         setSupportActionBar(binding.toolbar)
 
-        app = application as MainApp
+        app = application as FestivalApp
 
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
-        binding.recyclerView.adapter = FestivalAdapter(app.festivals.findAll(),this)
+        loadFestivals()
+
         registerRefreshCallback()
     }
-
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
         return super.onCreateOptionsMenu(menu)
@@ -58,14 +58,18 @@ class FestivalListActivity : AppCompatActivity(), FestivalListener {
         refreshIntentLauncher.launch(launcherIntent)
     }
 
-    /*override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        binding.recyclerView.adapter?.notifyDataSetChanged()
-        super.onActivityResult(requestCode, resultCode, data)
-    }*/
-
     private fun registerRefreshCallback() {
         refreshIntentLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult())
-            { binding.recyclerView.adapter?.notifyDataSetChanged() }
+            { loadFestivals() }
+    }
+
+    private fun loadFestivals() {
+        showFestivals(app.festivals.findAll())
+    }
+
+    fun showFestivals (festivals: List<FestivalModel>) {
+        binding.recyclerView.adapter = FestivalAdapter(festivals, this)
+        binding.recyclerView.adapter?.notifyDataSetChanged()
     }
 }

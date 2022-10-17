@@ -29,6 +29,11 @@ class FestivalMemStore : FestivalStore {
             foundFestival.description = festival.description
             foundFestival.county = festival.county
             foundFestival.image = festival.image
+            foundFestival.lat = festival.lat
+            foundFestival.lng = festival.lng
+            foundFestival.zoom = festival.zoom
+
+
             logAll()
         }
     }
