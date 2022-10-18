@@ -52,8 +52,4 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation("com.google.code.gson:gson:2.9.0")
-    //  implementation("com.loiscad.splitties:splitties-activities:3.0.0")
-    //  implementation("com.loiscad.splitties:splitties-toast:3.0.0")
-    //  implementation("com.loiscad.splitties:splitties-snackbar:1.0.0")
-    //   implementation("com.loiscad.splitties:splitties-alertdialog:3.0.0")
 }

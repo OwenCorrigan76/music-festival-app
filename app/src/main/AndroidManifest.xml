@@ -19,15 +19,21 @@
             android:name=".activities.MapActivity"
             android:exported="false"
             android:label="@string/title_activity_map" />
+
         <activity
-            android:name=".activities.FestivalListActivity"
+            android:name=".activities.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.FestivalActivity"></activity>
+
+        <activity android:name=".activities.FestivalListActivity">
+        </activity>
+
+        <activity android:name=".activities.FestivalActivity">
+        </activity>
+
     </application>
 </manifest>

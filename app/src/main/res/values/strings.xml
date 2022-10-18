@@ -19,6 +19,7 @@
     <string name="select_festival_image2">Select another festival image</string>
     <string name="button_location">Set Location</string>
     <string name="title_activity_map">MapActivity</string>
+    <string name="splash_text">Festival App</string>
 
     <string-array name="counties_list">
         <item>Antrim</item>
