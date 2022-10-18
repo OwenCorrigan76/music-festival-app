@@ -51,6 +51,7 @@ class FestivalJSONStore(private val context: Context) : FestivalStore {
             foundFestival.title = festival.title
             foundFestival.description = festival.description
             foundFestival.county = festival.county
+            foundFestival.date = festival.date
             foundFestival.image = festival.image
             foundFestival.lat = festival.lat
             foundFestival.lng = festival.lng

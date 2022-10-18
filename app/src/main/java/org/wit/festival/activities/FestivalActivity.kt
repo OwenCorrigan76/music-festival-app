@@ -8,7 +8,6 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import org.wit.festival.R
 
-
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.material.snackbar.Snackbar
@@ -31,12 +30,12 @@ class FestivalActivity : AppCompatActivity() {
     val IMAGE_REQUEST = 1
 
     override fun onCreate(
-        savedInstanceState: Bundle?) {
+        savedInstanceState: Bundle?
+    ) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_festival)
 
         var edit = false
-
 
         binding = ActivityFestivalBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -87,6 +86,10 @@ class FestivalActivity : AppCompatActivity() {
         binding.chooseImage.setOnClickListener {
             showImagePicker(imageIntentLauncher)
         }
+
+       /* binding.date.date.setOnClickListener {
+            showDatePicker(dateIntentLauncher)
+        }*/
 
         binding.festivalLocation.setOnClickListener { // launch maps and pass location to MapActivity
             val location = Location(52.245696, -7.139102, 15f)

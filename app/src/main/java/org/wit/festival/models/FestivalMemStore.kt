@@ -29,12 +29,11 @@ class FestivalMemStore : FestivalStore {
             foundFestival.title = festival.title
             foundFestival.description = festival.description
             foundFestival.county = festival.county
+            foundFestival.date = festival.date
             foundFestival.image = festival.image
             foundFestival.lat = festival.lat
             foundFestival.lng = festival.lng
             foundFestival.zoom = festival.zoom
-
-
             logAll()
         }
     }
@@ -42,6 +41,7 @@ class FestivalMemStore : FestivalStore {
     private fun logAll() {
         festivals.forEach { i("$it") }
     }
+
     override fun delete(festival: FestivalModel) {
         festivals.remove(festival)
     }

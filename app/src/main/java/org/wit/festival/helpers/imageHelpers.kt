@@ -11,3 +11,4 @@ fun showImagePicker(intentLauncher : ActivityResultLauncher<Intent>) {
     chooseFile = Intent.createChooser(chooseFile, R.string.select_festival_image.toString())
     intentLauncher.launch(chooseFile)
 }
+

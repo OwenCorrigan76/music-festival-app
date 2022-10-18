@@ -18,6 +18,8 @@
     <string name="select_festival_image">Select festival image</string>
     <string name="select_festival_image2">Select another festival image</string>
     <string name="button_location">Set Location</string>
+    <string name="button_picker">Set Date</string>
+
     <string name="title_activity_map">MapActivity</string>
     <string name="splash_text">Festival App</string>
 

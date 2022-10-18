@@ -21,6 +21,8 @@
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1" />
         <entry key="app/src/main/res/layout/card_festival.xml" value="0.1" />
         <entry key="app/src/main/res/layout/card_placemark.xml" value="0.21428571428571427" />
+        <entry key="app/src/main/res/layout/date.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/date_picker.xml" value="0.1" />
         <entry key="app/src/main/res/layout/dropdown_item.xml" value="0.13677811550151975" />
         <entry key="app/src/main/res/layout/home_festival.xml" value="0.27853260869565216" />
         <entry key="app/src/main/res/layout/menu_main.xml" value="0.1" />
