@@ -13,6 +13,7 @@ class FestivalMemStore : FestivalStore {
     val festivals = ArrayList<FestivalModel>()
 
     override fun findAll(): List<FestivalModel> {
+        logAll()
         return festivals
     }
 
@@ -40,5 +41,8 @@ class FestivalMemStore : FestivalStore {
 
     private fun logAll() {
         festivals.forEach { i("$it") }
+    }
+    override fun delete(festival: FestivalModel) {
+        festivals.remove(festival)
     }
 }

@@ -34,6 +34,10 @@ class FestivalJSONStore(private val context: Context) : FestivalStore {
         return festivals
     }
 
+   /* override fun findOne(id: Long) : FestivalModel? {
+        var foundFestval: FestivalModel? = festivals.find { p -> p.id == id }
+        return foundFestval
+    }*/
     override fun create(festival: FestivalModel) {
         festival.id = generateRandomId()
         festivals.add(festival)
@@ -41,9 +45,24 @@ class FestivalJSONStore(private val context: Context) : FestivalStore {
     }
 
     override fun update(festival: FestivalModel) {
-        // todo
+        val festivalsList = findAll() as ArrayList<FestivalModel>
+        val foundFestival: FestivalModel? = festivalsList.find { p -> p.id == festival.id }
+        if (foundFestival != null) {
+            foundFestival.title = festival.title
+            foundFestival.description = festival.description
+            foundFestival.county = festival.county
+            foundFestival.image = festival.image
+            foundFestival.lat = festival.lat
+            foundFestival.lng = festival.lng
+            foundFestival.zoom = festival.zoom
+        }
+        serialize()
     }
 
+    override fun delete(festival: FestivalModel) {
+        festivals.remove(festival)
+        serialize()
+    }
     private fun serialize() {
         val jsonString = gsonBuilder.toJson(festivals, listType)
         write(context, JSON_FILE, jsonString)
