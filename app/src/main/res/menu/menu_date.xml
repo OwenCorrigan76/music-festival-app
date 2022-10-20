@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/item_cancel"
-        android:title="@string/menu_cancelButton"
+        android:id="@+id/item_home"
+        android:title="@string/menu_homeButton"
         app:showAsAction="always"/>
 </menu>

@@ -34,10 +34,6 @@ class FestivalJSONStore(private val context: Context) : FestivalStore {
         return festivals
     }
 
-   /* override fun findOne(id: Long) : FestivalModel? {
-        var foundFestval: FestivalModel? = festivals.find { p -> p.id == id }
-        return foundFestval
-    }*/
     override fun create(festival: FestivalModel) {
         festival.id = generateRandomId()
         festivals.add(festival)

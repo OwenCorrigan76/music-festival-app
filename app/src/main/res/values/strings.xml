@@ -7,7 +7,8 @@
     <string name="button_addDescription">Add Description</string>
     <string name="hint_festivalLocation">County</string>
     <string name="menu_addFestival">Music Festivals</string>
-    <string name="menu_cancelFestival">Cancel</string>
+    <string name="menu_cancelButton">Cancel</string>
+    <string name="menu_homeButton">Home</string>
     <string name="menu_profileFestival">Profile</string>
     <string name="enter_festival_title">Please enter a festival title</string>
     <string name="enter_festival_value">Please Enter a value</string>

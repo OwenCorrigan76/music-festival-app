@@ -12,13 +12,13 @@ import org.wit.festival.R
 import org.wit.festival.adapters.FestivalAdapter
 import org.wit.festival.adapters.FestivalListener
 import org.wit.festival.databinding.ActivityFestivalListBinding
-import org.wit.festival.main.FestivalApp
+import org.wit.festival.main.MainApp
 import org.wit.festival.models.FestivalModel
 
 
 class FestivalListActivity : AppCompatActivity(), FestivalListener {
 
-    lateinit var app: FestivalApp
+    lateinit var app: MainApp
     private lateinit var binding: ActivityFestivalListBinding
     private lateinit var refreshIntentLauncher : ActivityResultLauncher<Intent>
 
@@ -29,7 +29,7 @@ class FestivalListActivity : AppCompatActivity(), FestivalListener {
         binding.toolbar.title = title
         setSupportActionBar(binding.toolbar)
 
-        app = application as FestivalApp
+        app = application as MainApp
 
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager

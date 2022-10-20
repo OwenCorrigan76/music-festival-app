@@ -24,6 +24,7 @@
          android:layout_alignParentStart="true"
          android:layout_alignParentTop="true"
          android:layout_centerInParent="true"
+         android:fontFamily="@font/robot4"
          android:layout_marginStart="68dp"
          android:layout_marginTop="269dp"
          android:text="@string/splash_text"

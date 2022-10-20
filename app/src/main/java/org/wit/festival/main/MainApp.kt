@@ -7,8 +7,8 @@ import org.wit.festival.models.FestivalStore
 import timber.log.Timber
 import timber.log.Timber.i
 
-class FestivalApp : Application() {
-    // val placemarks = ArrayList<PlacemarkModel>() // arrayList called placemarks of type PlacemarkModel
+class MainApp : Application() {
+    // val festivals = ArrayList<FestivalModel>() // arrayList called festivals of type FestivalModel
     //use below when introducing model
 
     lateinit var festivals: FestivalStore

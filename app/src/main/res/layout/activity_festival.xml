@@ -60,7 +60,6 @@
                     android:textColor="@color/colorPrimary"
                     android:textSize="16sp" />
 
-
                 <EditText
                     android:id="@+id/festivalTitle"
                     android:layout_width="match_parent"
@@ -77,7 +76,6 @@
                     android:paddingBottom="2dp"
                     android:textColor="@color/black"
                     android:textSize="24sp" />
-
 
                 <EditText
                     android:id="@+id/description"

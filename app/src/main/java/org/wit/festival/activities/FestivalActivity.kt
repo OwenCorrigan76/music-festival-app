@@ -5,16 +5,20 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import org.wit.festival.R
 
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContentProviderCompat.requireContext
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import org.wit.festival.databinding.ActivityFestivalBinding
 import org.wit.festival.helpers.showImagePicker
-import org.wit.festival.main.FestivalApp
+import org.wit.festival.main.MainApp
 import org.wit.festival.models.FestivalModel
 import org.wit.festival.models.Location
 
@@ -24,14 +28,13 @@ class FestivalActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityFestivalBinding
     var festival = FestivalModel()
-    lateinit var app: FestivalApp
+    lateinit var app: MainApp
     private lateinit var imageIntentLauncher: ActivityResultLauncher<Intent> // initialise
     private lateinit var mapIntentLauncher: ActivityResultLauncher<Intent> // initialise
     val IMAGE_REQUEST = 1
+   // private lateinit var spin: Spinner
 
-    override fun onCreate(
-        savedInstanceState: Bundle?
-    ) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_festival)
 
@@ -42,8 +45,16 @@ class FestivalActivity : AppCompatActivity() {
         binding.toolbarAdd.title = title
         setSupportActionBar(binding.toolbarAdd)
 
-        app = application as FestivalApp
+       /* val adapter = ArrayAdapter.createFromResource(
+            this, R.array.counties_list,
+            android.R.layout.simple_spinner_item
+        )
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spin.adapter = adapter
+        spin = findViewById(R.id.spinner)
+        val counties = resources.getStringArray(R.array.counties_list)*/
 
+        app = application as MainApp
         i("Festival Activity has started...")
 
         if (intent.hasExtra("festival_edit")) {
@@ -83,13 +94,14 @@ class FestivalActivity : AppCompatActivity() {
             finish()
         }
 
+        binding.btnPicker.setOnClickListener {
+            val launcherIntent = Intent(this, FestivalDates::class.java)
+            startActivity(launcherIntent)
+        }
+
         binding.chooseImage.setOnClickListener {
             showImagePicker(imageIntentLauncher)
         }
-
-       /* binding.date.date.setOnClickListener {
-            showDatePicker(dateIntentLauncher)
-        }*/
 
         binding.festivalLocation.setOnClickListener { // launch maps and pass location to MapActivity
             val location = Location(52.245696, -7.139102, 15f)
@@ -164,3 +176,4 @@ class FestivalActivity : AppCompatActivity() {
             }
     }
 }
+

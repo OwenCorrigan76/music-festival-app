@@ -23,3 +23,8 @@ data class Location(
     var lng: Double = 0.0,
     var zoom: Float = 0f
 ) : Parcelable
+
+@Parcelize
+data class Date(
+    var date: Double = 0.0,
+) : Parcelable
