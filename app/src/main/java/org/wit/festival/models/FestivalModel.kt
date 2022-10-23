@@ -24,7 +24,4 @@ data class Location(
     var zoom: Float = 0f
 ) : Parcelable
 
-@Parcelize
-data class Dates(
-    var date: String = "",
-) : Parcelable
+

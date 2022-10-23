@@ -111,6 +111,23 @@
                     android:textColor="@color/black"
                     android:textSize="24sp" />
 
+                <EditText
+                    android:id="@+id/dateView"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:layout_margin="8dp"
+                    android:autofillHints=""
+                    android:background="@color/torq"
+                    android:hint="@string/hint_festivalDate"
+                    android:inputType="text"
+                    android:maxLength="30"
+                    android:maxLines="1"
+                    android:padding="8dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:textColor="@color/black"
+                    android:textSize="24sp" />
+
                 <Button
                     android:id="@+id/festivalLocation"
                     android:layout_width="match_parent"
@@ -138,7 +155,7 @@
                     android:textSize="16sp" />
 
                 <Button
-                    android:id="@+id/btnPicker"
+                    android:id="@+id/btn_date_picker"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
@@ -149,6 +166,21 @@
                     android:text="@string/button_picker"
                     android:textColor="@color/colorPrimary"
                     android:textSize="16sp" />
+
+                <DatePicker
+                    android:id="@+id/datePicker"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@color/torq"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+                </DatePicker>
 
             </LinearLayout>
         </ScrollView>

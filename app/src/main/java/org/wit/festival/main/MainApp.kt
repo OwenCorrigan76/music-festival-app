@@ -17,7 +17,7 @@ class MainApp : Application() {
         super.onCreate()
         Timber.plant(Timber.DebugTree())
         festivals = FestivalJSONStore(applicationContext)
-        i("Festival started")
+        i("Festival App Started")
 
         //  festivals.create(FestivalModel(0, "ATN", "Music Festival", "Waterford"))
         //  festivals.create(FestivalModel(1, "Electric Picnic", "Music Festival", "Stradbally"))

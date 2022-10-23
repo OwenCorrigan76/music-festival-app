@@ -48,7 +48,7 @@ class FestivalAdapter constructor(
             binding.festivalTitle.text = festival.title
             binding.description.text = festival.description
             binding.county.text = festival.county
-            binding.date.text = festival.date
+            binding.dateView.text = festival.date
             Picasso.get().load(festival.image).resize(200, 200).into(binding.imageIcon)
             binding.root.setOnClickListener { listener.onFestivalClick(festival) }
         }

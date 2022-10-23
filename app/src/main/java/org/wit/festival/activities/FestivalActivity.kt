@@ -1,28 +1,28 @@
 package org.wit.festival.activities
 
+import android.app.DatePickerDialog
 import android.content.Intent
+import android.icu.text.SimpleDateFormat
+import android.icu.util.Calendar
 import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Spinner
-import androidx.appcompat.app.AppCompatActivity
-import org.wit.festival.R
-
+import android.widget.DatePicker
+import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
+import org.wit.festival.R
 import org.wit.festival.databinding.ActivityFestivalBinding
 import org.wit.festival.helpers.showImagePicker
 import org.wit.festival.main.MainApp
 import org.wit.festival.models.FestivalModel
 import org.wit.festival.models.Location
-
 import timber.log.Timber.i
+import java.util.*
 
 class FestivalActivity : AppCompatActivity() {
 
@@ -32,13 +32,15 @@ class FestivalActivity : AppCompatActivity() {
     private lateinit var imageIntentLauncher: ActivityResultLauncher<Intent> // initialise
     private lateinit var mapIntentLauncher: ActivityResultLauncher<Intent> // initialise
     val IMAGE_REQUEST = 1
-    // private lateinit var spin: Spinner
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_festival)
 
         var edit = false
+        val today = Calendar.getInstance()
+        val year = today.get(Calendar.YEAR)
+        val month = today.get(Calendar.MONTH)
+        val day = today.get(Calendar.DAY_OF_MONTH)
 
         binding = ActivityFestivalBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -48,6 +50,7 @@ class FestivalActivity : AppCompatActivity() {
         app = application as MainApp
         i("Festival Activity has started...")
 
+        // if there is already content - edit it
         if (intent.hasExtra("festival_edit")) {
             edit = true
             festival = intent.extras?.getParcelable("festival_edit")!!
@@ -64,12 +67,16 @@ class FestivalActivity : AppCompatActivity() {
             if (festival.image != Uri.EMPTY) {
                 binding.chooseImage.setText(R.string.change_festival_image)
             }
+            binding.dateView.setText(festival.date)
+
         }
 
+        // add / save festival button
         binding.btnAdd.setOnClickListener() {
             festival.title = binding.festivalTitle.text.toString()
             festival.description = binding.description.text.toString()
             festival.county = binding.county.text.toString()
+            festival.date = binding.dateView.text.toString()
             if (festival.title.isEmpty()) {
                 Snackbar.make(it, R.string.enter_festival_title, Snackbar.LENGTH_LONG)
                     .show()
@@ -85,15 +92,27 @@ class FestivalActivity : AppCompatActivity() {
             finish()
         }
 
-        binding.btnPicker.setOnClickListener {
-            val launcherIntent = Intent(this, FestivalDates::class.java)
-            startActivity(launcherIntent)
+        // set date datePicker button
+        binding.btnDatePicker.setOnClickListener {
+            val dialogP = DatePickerDialog(
+                this,
+                { _, Year, Month, Day ->
+                    val Month = Month + 1
+                    binding.dateView.setText("$Day/$Month/$Year")
+                }, year, month, day
+            )
+            dialogP.show()
         }
+        val toast = "Today's Date Is : $day/$month/$year"
+        Toast.makeText(this, toast, Toast.LENGTH_SHORT).show()
 
+
+        // add an image button
         binding.chooseImage.setOnClickListener {
             showImagePicker(imageIntentLauncher)
         }
 
+        // set location button
         binding.festivalLocation.setOnClickListener { // launch maps and pass location to MapActivity
             val location = Location(52.245696, -7.139102, 15f)
             if (festival.zoom != 0f) {
@@ -109,11 +128,19 @@ class FestivalActivity : AppCompatActivity() {
         registerMapCallback()
     }
 
+    fun DatePicker.getDate() : Date
+    { val calendar = Calendar.getInstance()
+        calendar.set(year, month, dayOfMonth)
+        return calendar.time
+    }
+
+    //  main menu
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_festival, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
+    // cancel button
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.item_cancel -> {
@@ -123,6 +150,7 @@ class FestivalActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+    // image callback
     private fun registerImagePickerCallback() {
         imageIntentLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult())
@@ -144,6 +172,7 @@ class FestivalActivity : AppCompatActivity() {
             }
     }
 
+    // map callback
     private fun registerMapCallback() {
         mapIntentLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult())
@@ -166,4 +195,3 @@ class FestivalActivity : AppCompatActivity() {
             }
     }
 }
-

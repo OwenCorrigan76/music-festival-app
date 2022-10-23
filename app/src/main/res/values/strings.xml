@@ -2,7 +2,7 @@
     <string name="app_name">Festivals Ireland</string>
     <string name="button_addFestival">Add Festival</string>
     <string name="hint_festivalTitle">Name</string>
-    <string name="hint_date">Date</string>
+    <string name="hint_festivalDate">Date</string>
     <string name="hint_festivalDescription">Type</string>
     <string name="button_addDescription">Add Description</string>
     <string name="hint_festivalLocation">County</string>
