@@ -46,7 +46,7 @@ class FestivalListActivity : AppCompatActivity(), FestivalListener {
         when (item.itemId) {
             R.id.item_add -> {
                 val launcherIntent = Intent(this, FestivalActivity::class.java)
-                refreshIntentLauncher.launch(launcherIntent)
+                refreshIntentLauncher.launch(launcherIntent) // refresh page with new content
             }
         }
         return super.onOptionsItemSelected(item)

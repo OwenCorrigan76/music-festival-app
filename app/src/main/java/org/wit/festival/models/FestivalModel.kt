@@ -10,8 +10,8 @@ data class FestivalModel(
     var title: String = "",
     var description: String = "",
     var county: String = "",
-    var date: String = "",
-    var image: Uri = Uri.EMPTY,  // default value is empti Uri
+    var date: String = "" ,
+    var image: Uri = Uri.EMPTY,  // default value is empty Uri
     var lat: Double = 0.0,
     var lng: Double = 0.0,
     var zoom: Float = 0f
@@ -25,6 +25,6 @@ data class Location(
 ) : Parcelable
 
 @Parcelize
-data class Date(
-    var date: Double = 0.0,
+data class Dates(
+    var date: String = "",
 ) : Parcelable

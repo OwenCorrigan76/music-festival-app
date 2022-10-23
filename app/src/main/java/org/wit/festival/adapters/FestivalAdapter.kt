@@ -8,14 +8,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import org.wit.festival.models.FestivalModel
 import org.wit.festival.databinding.CardFestivalBinding
+import java.util.*
 
 // this will represent click events on festival card
 interface FestivalListener {
     fun onFestivalClick(festival: FestivalModel)
 }
 
-class FestivalAdapter constructor(private var festivals: List<FestivalModel>,
-                                  private val listener: FestivalListener) :
+class FestivalAdapter constructor(
+    private var festivals: List<FestivalModel>,
+    private val listener: FestivalListener
+) :
     RecyclerView.Adapter<FestivalAdapter.MainHolder>() {
     // when this is called, based on the amount in getItemCount() below,
     // a new card layout is inflated
@@ -34,6 +37,7 @@ class FestivalAdapter constructor(private var festivals: List<FestivalModel>,
         val festival = festivals[holder.adapterPosition]
         holder.bind(festival, listener)
     }
+
     override fun getItemCount(): Int = festivals.size
 
     class MainHolder(private val binding: CardFestivalBinding) :
@@ -45,9 +49,9 @@ class FestivalAdapter constructor(private var festivals: List<FestivalModel>,
             binding.description.text = festival.description
             binding.county.text = festival.county
             binding.date.text = festival.date
-            Picasso.get().load(festival.image).resize(200,200).into(binding.imageIcon)
+            Picasso.get().load(festival.image).resize(200, 200).into(binding.imageIcon)
             binding.root.setOnClickListener { listener.onFestivalClick(festival) }
         }
-
     }
 }
+

@@ -32,7 +32,7 @@ class FestivalActivity : AppCompatActivity() {
     private lateinit var imageIntentLauncher: ActivityResultLauncher<Intent> // initialise
     private lateinit var mapIntentLauncher: ActivityResultLauncher<Intent> // initialise
     val IMAGE_REQUEST = 1
-   // private lateinit var spin: Spinner
+    // private lateinit var spin: Spinner
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,15 +44,6 @@ class FestivalActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.toolbarAdd.title = title
         setSupportActionBar(binding.toolbarAdd)
-
-       /* val adapter = ArrayAdapter.createFromResource(
-            this, R.array.counties_list,
-            android.R.layout.simple_spinner_item
-        )
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spin.adapter = adapter
-        spin = findViewById(R.id.spinner)
-        val counties = resources.getStringArray(R.array.counties_list)*/
 
         app = application as MainApp
         i("Festival Activity has started...")
@@ -145,8 +136,7 @@ class FestivalActivity : AppCompatActivity() {
                                 .load(festival.image)
                                 .into(binding.festivalImage)
                             binding.chooseImage.setText(R.string.change_festival_image)
-
-                        } // end of if
+                        }
                     }
                     RESULT_CANCELED -> {}
                     else -> {}

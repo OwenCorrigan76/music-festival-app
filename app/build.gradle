@@ -10,7 +10,6 @@ android {
 
     defaultConfig {
         applicationId "org.wit.festival"
-        applicationId "com.sriyank.spinner"
 
         minSdk 28
         targetSdk 31

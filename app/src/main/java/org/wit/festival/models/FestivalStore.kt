@@ -1,4 +1,5 @@
 package org.wit.festival.models
+// this is our interface
 
 interface FestivalStore {
     fun findAll(): List<FestivalModel>

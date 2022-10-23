@@ -5,28 +5,26 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.DatePicker
-import android.widget.Spinner
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.appcompat.app.AppCompatActivity
 import org.wit.festival.R
 import org.wit.festival.databinding.ActivityDateBinding
 import org.wit.festival.main.MainApp
+import org.wit.festival.models.Dates
 import org.wit.festival.models.FestivalModel
+import org.wit.festival.models.Location
 import java.util.*
 
 class FestivalDates : AppCompatActivity() {
-    private lateinit var dateIntentLauncher: ActivityResultLauncher<Intent> // initialise
     private lateinit var binding: ActivityDateBinding
-    private lateinit var refreshIntentLauncher: ActivityResultLauncher<Intent>
     lateinit var app: MainApp
-
+    var festival = FestivalModel()
+    var edit = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDateBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.toolbar.title = title
-        setSupportActionBar(binding.toolbar)
 
         val picker = findViewById<DatePicker>(R.id.datePicker)
         val today = Calendar.getInstance()
@@ -38,20 +36,22 @@ class FestivalDates : AppCompatActivity() {
             val month = month + 1
             val toast = "You have picked : $day/$month/$year"
             Toast.makeText(this, toast, Toast.LENGTH_SHORT).show()
+            binding.datePicker.setOnClickListener {
+                festival.date = binding.datePicker.toString()
+            }
+            val intent = Intent(this, FestivalListActivity::class.java)
+            startActivity(intent)
         }
     }
 
-    fun onDateClick(festival: FestivalModel) {
-        val launcherIntent = Intent(this, FestivalActivity::class.java)
-        launcherIntent.putExtra("date_edit", festival)
-        refreshIntentLauncher.launch(launcherIntent)
-    }
 
+    // part of thr navbar
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_festival, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
+    // if cancel is pressed, return to FestivalListActivity
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.item_cancel -> {
