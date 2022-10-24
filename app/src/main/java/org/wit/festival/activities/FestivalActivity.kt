@@ -2,7 +2,6 @@ package org.wit.festival.activities
 
 import android.app.DatePickerDialog
 import android.content.Intent
-import android.icu.text.SimpleDateFormat
 import android.icu.util.Calendar
 import android.net.Uri
 import android.os.Bundle
@@ -31,16 +30,16 @@ class FestivalActivity : AppCompatActivity() {
     lateinit var app: MainApp
     private lateinit var imageIntentLauncher: ActivityResultLauncher<Intent> // initialise
     private lateinit var mapIntentLauncher: ActivityResultLauncher<Intent> // initialise
-    val IMAGE_REQUEST = 1
+    // val IMAGE_REQUEST = 1
+    var edit = false
+    val today = Calendar.getInstance()
+    val year = today.get(Calendar.YEAR)
+    val month = today.get(Calendar.MONTH)
+    val day = today.get(Calendar.DAY_OF_MONTH)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_festival)
-
-        var edit = false
-        val today = Calendar.getInstance()
-        val year = today.get(Calendar.YEAR)
-        val month = today.get(Calendar.MONTH)
-        val day = today.get(Calendar.DAY_OF_MONTH)
 
         binding = ActivityFestivalBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -128,8 +127,8 @@ class FestivalActivity : AppCompatActivity() {
         registerMapCallback()
     }
 
-    fun DatePicker.getDate() : Date
-    { val calendar = Calendar.getInstance()
+    fun DatePicker.getDate(): Date {
+        val calendar = Calendar.getInstance()
         calendar.set(year, month, dayOfMonth)
         return calendar.time
     }
@@ -137,6 +136,7 @@ class FestivalActivity : AppCompatActivity() {
     //  main menu
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_festival, menu)
+        if (edit) menu.getItem(0).isVisible = true
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -146,6 +146,10 @@ class FestivalActivity : AppCompatActivity() {
             R.id.item_cancel -> {
                 finish()
             }
+            R.id.item_delete -> {
+            app.festivals.delete(festival)
+            finish()
+        }
         }
         return super.onOptionsItemSelected(item)
     }

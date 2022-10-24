@@ -8,6 +8,7 @@
     <string name="hint_festivalLocation">County</string>
     <string name="menu_addFestival">Music Festivals</string>
     <string name="menu_cancelButton">Cancel</string>
+    <string name="menu_deleteButton">Delete</string>
     <string name="menu_homeButton">Home</string>
     <string name="menu_profileFestival">Profile</string>
     <string name="enter_festival_title">Please enter a festival title</string>
@@ -20,7 +21,10 @@
     <string name="select_festival_image2">Select another festival image</string>
     <string name="button_location">Set Location</string>
     <string name="button_picker">Set Date</string>
-
+    <string name="title_activity_festival_maps">Map of All Festivals </string>
+    <string name="festival_image_placeholder">Festival Image</string>
+    <string name="festival_title_placeholder">Festival Title</string>
+    <string name="festival_description_placeholder">Festival Description</string>
     <string name="title_activity_map">MapActivity</string>
     <string name="splash_text">Festival App</string>
 

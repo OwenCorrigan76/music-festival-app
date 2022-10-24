@@ -50,7 +50,6 @@
             android:textColor="@color/black"
             tools:text="A Description" />
 
-
         <TextView
             android:id="@+id/county"
             android:layout_width="wrap_content"
