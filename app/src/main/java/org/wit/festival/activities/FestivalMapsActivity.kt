@@ -2,12 +2,15 @@ package org.wit.festival.activities
 
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import org.wit.festival.R
 import org.wit.festival.databinding.ActivityFestivalMapsBinding
 import org.wit.festival.databinding.ContentFestivalMapsBinding
 import org.wit.festival.main.MainApp
@@ -74,4 +77,21 @@ class FestivalMapsActivity : AppCompatActivity(), GoogleMap.OnMarkerClickListene
         super.onSaveInstanceState(outState)
         contentBinding.mapView.onSaveInstanceState(outState)
     }
+
+    // inflate menu_festival for cancel
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_festival, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    // cancel and return to listActivity
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.item_cancel -> {
+                finish()
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
 }
+

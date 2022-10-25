@@ -2,17 +2,17 @@ package org.wit.festival.activities
 
 import android.app.DatePickerDialog
 import android.content.Intent
+import android.content.res.Resources
 import android.icu.util.Calendar
 import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.DatePicker
-import android.widget.Toast
+import android.view.View
+import android.widget.*
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import org.wit.festival.R
 import org.wit.festival.databinding.ActivityFestivalBinding
@@ -21,7 +21,6 @@ import org.wit.festival.main.MainApp
 import org.wit.festival.models.FestivalModel
 import org.wit.festival.models.Location
 import timber.log.Timber.i
-import java.util.*
 
 class FestivalActivity : AppCompatActivity() {
 
@@ -30,8 +29,10 @@ class FestivalActivity : AppCompatActivity() {
     lateinit var app: MainApp
     private lateinit var imageIntentLauncher: ActivityResultLauncher<Intent> // initialise
     private lateinit var mapIntentLauncher: ActivityResultLauncher<Intent> // initialise
-    // val IMAGE_REQUEST = 1
+
     var edit = false
+
+    // variables for datePicker
     val today = Calendar.getInstance()
     val year = today.get(Calendar.YEAR)
     val month = today.get(Calendar.MONTH)
@@ -39,17 +40,44 @@ class FestivalActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_festival)
-
+        // inflate activity_festival.xml
         binding = ActivityFestivalBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.toolbarAdd.title = title
         setSupportActionBar(binding.toolbarAdd)
 
+        val spinner = findViewById<Spinner>(R.id.countyspinner)
+        val county = findViewById<TextView>(R.id.county)
+        val res: Resources = resources
+        if (spinner != null) {
+            val counties = res.getStringArray(R.array.counties_list)
+            val arrayAdapter =
+                ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, counties)
+            spinner.adapter = arrayAdapter
+
+            binding.countyspinner.onItemSelectedListener =
+                object : AdapterView.OnItemSelectedListener {
+                    override fun onItemSelected(
+                        parent: AdapterView<*>,
+                        view: View?,
+                        position: Int,
+                        id: Long
+                    ) {
+                        county.text = " ${counties.get(position).toString()}"
+                    }
+
+                    override fun onNothingSelected(parent: AdapterView<*>?) {
+                        county.text = "please select a county"
+                    }
+                }
+        }
+
+
+        // initialise main app
         app = application as MainApp
         i("Festival Activity has started...")
 
-        // if there is already content - edit it
+        // if there is already content - can edit it
         if (intent.hasExtra("festival_edit")) {
             edit = true
             festival = intent.extras?.getParcelable("festival_edit")!!
@@ -67,7 +95,6 @@ class FestivalActivity : AppCompatActivity() {
                 binding.chooseImage.setText(R.string.change_festival_image)
             }
             binding.dateView.setText(festival.date)
-
         }
 
         // add / save festival button
@@ -77,15 +104,16 @@ class FestivalActivity : AppCompatActivity() {
             festival.county = binding.county.text.toString()
             festival.date = binding.dateView.text.toString()
             if (festival.title.isEmpty()) {
-                Snackbar.make(it, R.string.enter_festival_title, Snackbar.LENGTH_LONG)
+                Toast.makeText(this, R.string.enter_festival_title, Toast.LENGTH_LONG)
                     .show()
             } else {
-                if (edit) {
+                if (edit) { // save
                     app.festivals.update(festival.copy())
-                } else {
+                } else { // add
                     app.festivals.create(festival.copy())
                 }
             }
+
             i("add Button Pressed: $festival")
             setResult(RESULT_OK)
             finish()
@@ -102,6 +130,7 @@ class FestivalActivity : AppCompatActivity() {
             )
             dialogP.show()
         }
+        // displays today's date
         val toast = "Today's Date Is : $day/$month/$year"
         Toast.makeText(this, toast, Toast.LENGTH_SHORT).show()
 
@@ -127,11 +156,12 @@ class FestivalActivity : AppCompatActivity() {
         registerMapCallback()
     }
 
-    fun DatePicker.getDate(): Date {
+    //Try below
+    /*fun DatePicker.getDate(): Date {
         val calendar = Calendar.getInstance()
         calendar.set(year, month, dayOfMonth)
         return calendar.time
-    }
+    }*/
 
     //  main menu
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -147,9 +177,9 @@ class FestivalActivity : AppCompatActivity() {
                 finish()
             }
             R.id.item_delete -> {
-            app.festivals.delete(festival)
-            finish()
-        }
+                app.festivals.delete(festival)
+                finish()
+            }
         }
         return super.onOptionsItemSelected(item)
     }

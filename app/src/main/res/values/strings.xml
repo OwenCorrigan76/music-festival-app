@@ -2,7 +2,7 @@
     <string name="app_name">Festivals Ireland</string>
     <string name="button_addFestival">Add Festival</string>
     <string name="hint_festivalTitle">Name</string>
-    <string name="hint_festivalDate">Date</string>
+    <string name="hint_festivalDate">Use Set Date</string>
     <string name="hint_festivalDescription">Type</string>
     <string name="button_addDescription">Add Description</string>
     <string name="hint_festivalLocation">County</string>
@@ -11,7 +11,8 @@
     <string name="menu_deleteButton">Delete</string>
     <string name="menu_homeButton">Home</string>
     <string name="menu_profileFestival">Profile</string>
-    <string name="enter_festival_title">Please enter a festival title</string>
+    <string name="enter_festival_title">You must enter a festival name</string>
+    <string name="enter_festival_date">You must set a date</string>
     <string name="enter_festival_value">Please Enter a value</string>
     <string name="save_festival">Save a Festival</string>
     <string name="pick_county">Pick a County</string>
@@ -61,15 +62,6 @@
         <item>Westmeath</item>
         <item>Wexford</item>
         <item>Wicklow</item>
-    </string-array>
-
-    <string-array name="type">
-        <item>Music</item>
-        <item>Film</item>
-        <item>Dance</item>
-        <item>Food</item>
-        <item>Art</item>
-        <item>Literature</item>
     </string-array>
 
 </resources>
