@@ -71,6 +71,8 @@ class FestivalActivity : AppCompatActivity() {
                     }
                 }
         }
+        // create a spinner for type
+        val spinner2 = findViewById<Spinner>(R.id.countyspinner)
 
 
         // initialise main app
