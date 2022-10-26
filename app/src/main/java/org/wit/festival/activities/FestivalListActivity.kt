@@ -21,6 +21,7 @@ class FestivalListActivity : AppCompatActivity(), FestivalListener {
     lateinit var app: MainApp
     private lateinit var binding: ActivityFestivalListBinding
     private lateinit var refreshIntentLauncher : ActivityResultLauncher<Intent>
+    private lateinit var mapIntentLauncher : ActivityResultLauncher<Intent>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,9 +34,11 @@ class FestivalListActivity : AppCompatActivity(), FestivalListener {
 
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
-        loadFestivals()
 
+        loadFestivals()
         registerRefreshCallback()
+        registerMapCallback()
+
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
@@ -48,7 +51,12 @@ class FestivalListActivity : AppCompatActivity(), FestivalListener {
                 val launcherIntent = Intent(this, FestivalActivity::class.java)
                 refreshIntentLauncher.launch(launcherIntent) // refresh page with new content
             }
+            R.id.item_map -> {
+                val launcherIntent = Intent(this, FestivalMapsActivity::class.java)
+                mapIntentLauncher.launch(launcherIntent)
+            }
         }
+
         return super.onOptionsItemSelected(item)
     }
 
@@ -63,7 +71,11 @@ class FestivalListActivity : AppCompatActivity(), FestivalListener {
             registerForActivityResult(ActivityResultContracts.StartActivityForResult())
             { loadFestivals() }
     }
-
+    private fun registerMapCallback() {
+        mapIntentLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult())
+            {  }
+    }
     private fun loadFestivals() {
         showFestivals(app.festivals.findAll())
     }

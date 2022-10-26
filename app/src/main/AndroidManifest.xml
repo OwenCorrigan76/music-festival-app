@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.wit.festival">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:name=".main.MainApp"
         android:allowBackup="true"
@@ -29,12 +32,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activities.FestivalListActivity">
-        </activity>
-        <activity android:name=".activities.FestivalDates">
-        </activity>
-        <activity android:name=".activities.FestivalActivity">
-        </activity>
+        <activity android:name=".activities.FestivalListActivity"></activity>
+        <activity android:name=".activities.FestivalDates"></activity>
+        <activity android:name=".activities.FestivalActivity" />
+        <activity android:name=".activities.FestivalMapsActivity" />
 
     </application>
 </manifest>

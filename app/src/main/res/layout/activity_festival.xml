@@ -99,10 +99,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="65dp"
                     android:layout_margin="8dp"
-                    android:autofillHints=""
                     android:background="@color/torq"
                     android:hint="@string/hint_festivalLocation"
-                    android:inputType="text"
                     android:maxLength="30"
                     android:maxLines="1"
                     android:padding="8dp"
@@ -111,7 +109,23 @@
                     android:textColor="@color/black"
                     android:textSize="24sp" />
 
-                <EditText
+                <Spinner
+                    android:id="@+id/countyspinner"
+                    android:layout_width="fill_parent"
+                    android:layout_height="65dp"
+                    android:layout_gravity="right"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:background="@color/torq"
+                    android:inputType="text"
+                    android:maxLength="25"
+                    android:maxLines="1"
+                    android:padding="8dp"
+                    android:spinnerMode="dropdown"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
                     android:id="@+id/dateView"
                     android:layout_width="match_parent"
                     android:layout_height="65dp"
@@ -119,11 +133,10 @@
                     android:autofillHints=""
                     android:background="@color/torq"
                     android:hint="@string/hint_festivalDate"
-                    android:inputType="text"
                     android:maxLength="30"
                     android:maxLines="1"
                     android:padding="8dp"
-                    android:paddingTop="2dp"
+                    android:paddingTop="32dp"
                     android:paddingBottom="2dp"
                     android:textColor="@color/black"
                     android:textSize="24sp" />
@@ -166,21 +179,6 @@
                     android:text="@string/button_picker"
                     android:textColor="@color/colorPrimary"
                     android:textSize="16sp" />
-
-                <DatePicker
-                    android:id="@+id/datePicker"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:background="@color/torq"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-                </DatePicker>
 
             </LinearLayout>
         </ScrollView>
