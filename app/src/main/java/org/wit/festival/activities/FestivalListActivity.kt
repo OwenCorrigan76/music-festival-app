@@ -66,6 +66,13 @@ class FestivalListActivity : AppCompatActivity(), FestivalListener {
         refreshIntentLauncher.launch(launcherIntent)
     }
 
+     fun onDateClick(festival: FestivalModel) {
+        val launcherIntent = Intent(this, FestivalActivity::class.java)
+        launcherIntent.putExtra("date_edit", festival)
+        refreshIntentLauncher.launch(launcherIntent)
+    }
+
+
     private fun registerRefreshCallback() {
         refreshIntentLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult())

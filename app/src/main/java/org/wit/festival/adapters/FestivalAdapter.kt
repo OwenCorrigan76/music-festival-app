@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import org.wit.festival.models.FestivalModel
 import org.wit.festival.databinding.CardFestivalBinding
-import java.util.*
 
 // this will represent click events on festival card
 interface FestivalListener {

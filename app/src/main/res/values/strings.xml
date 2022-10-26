@@ -5,7 +5,7 @@
     <string name="hint_festivalDate">Use Set Date</string>
     <string name="hint_festivalDescription">Type</string>
     <string name="button_addDescription">Add Description</string>
-    <string name="hint_festivalLocation">County</string>
+    <string name="hint_festivalLocation">Pick a county</string>
     <string name="menu_addFestival">Music Festivals</string>
     <string name="menu_cancelButton">Cancel</string>
     <string name="menu_deleteButton">Delete</string>
@@ -62,6 +62,16 @@
         <item>Westmeath</item>
         <item>Wexford</item>
         <item>Wicklow</item>
+    </string-array>
+
+    <string-array name="type_list">
+        <item>Arts</item>
+        <item>Comedy</item>
+        <item>Film</item>
+        <item>Food</item>
+        <item>Music</item>
+        <item>Spoken Word</item>
+        <item>Literary</item>
     </string-array>
 
 </resources>

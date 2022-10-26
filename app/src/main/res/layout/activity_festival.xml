@@ -11,7 +11,10 @@
         android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout"
@@ -33,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/appBarLayout"
-            android:layout_marginTop="61dp"
+            android:layout_marginTop="60dp"
             android:fillViewport="true">
 
             <LinearLayout
@@ -51,7 +54,7 @@
                     android:id="@+id/chooseImage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
+                    android:layout_margin="8dp"
                     android:backgroundTint="@color/purple_500"
                     android:paddingTop="8dp"
                     android:paddingBottom="8dp"
@@ -63,7 +66,7 @@
                 <EditText
                     android:id="@+id/festivalTitle"
                     android:layout_width="match_parent"
-                    android:layout_height="65dp"
+                    android:layout_height="45dp"
                     android:layout_margin="8dp"
                     android:autofillHints=""
                     android:background="@color/torq"
@@ -80,7 +83,7 @@
                 <EditText
                     android:id="@+id/description"
                     android:layout_width="match_parent"
-                    android:layout_height="65dp"
+                    android:layout_height="45dp"
                     android:layout_margin="8dp"
                     android:autofillHints=""
                     android:background="@color/torq"
@@ -94,10 +97,10 @@
                     android:textColor="@color/black"
                     android:textSize="24sp" />
 
-                <EditText
+                <TextView
                     android:id="@+id/county"
                     android:layout_width="match_parent"
-                    android:layout_height="65dp"
+                    android:layout_height="45dp"
                     android:layout_margin="8dp"
                     android:background="@color/torq"
                     android:hint="@string/hint_festivalLocation"
@@ -109,26 +112,26 @@
                     android:textColor="@color/black"
                     android:textSize="24sp" />
 
+
                 <Spinner
                     android:id="@+id/countyspinner"
-                    android:layout_width="fill_parent"
-                    android:layout_height="65dp"
-                    android:layout_gravity="right"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
                     android:layout_margin="8dp"
                     android:layout_weight="1"
                     android:background="@color/torq"
                     android:inputType="text"
-                    android:maxLength="25"
+                    android:maxLength="30"
                     android:maxLines="1"
-                    android:padding="8dp"
+                    android:padding="2dp"
                     android:spinnerMode="dropdown"
                     android:textColor="@color/black"
-                    android:textSize="14sp" />
+                    android:textSize="24sp" />
 
                 <TextView
                     android:id="@+id/dateView"
                     android:layout_width="match_parent"
-                    android:layout_height="65dp"
+                    android:layout_height="45dp"
                     android:layout_margin="8dp"
                     android:autofillHints=""
                     android:background="@color/torq"
@@ -136,7 +139,7 @@
                     android:maxLength="30"
                     android:maxLines="1"
                     android:padding="8dp"
-                    android:paddingTop="32dp"
+                    android:paddingTop="6dp"
                     android:paddingBottom="2dp"
                     android:textColor="@color/black"
                     android:textSize="24sp" />
@@ -145,7 +148,7 @@
                     android:id="@+id/festivalLocation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
+                    android:layout_margin="8dp"
                     android:backgroundTint="@color/purple_500"
                     android:paddingTop="8dp"
                     android:paddingBottom="8dp"
@@ -155,28 +158,28 @@
                     android:textSize="16sp" />
 
                 <Button
-                    android:id="@+id/btnAdd"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:backgroundTint="@color/purple_500"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:stateListAnimator="@null"
-                    android:text="@string/button_addFestival"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="16sp" />
-
-                <Button
                     android:id="@+id/btn_date_picker"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
+                    android:layout_margin="8dp"
                     android:backgroundTint="@color/purple_500"
                     android:paddingTop="8dp"
                     android:paddingBottom="8dp"
                     android:stateListAnimator="@null"
                     android:text="@string/button_picker"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/btnAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:backgroundTint="@color/purple_500"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:stateListAnimator="@null"
+                    android:text="@string/button_addFestival"
                     android:textColor="@color/colorPrimary"
                     android:textSize="16sp" />
 

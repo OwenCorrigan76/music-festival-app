@@ -29,7 +29,6 @@ class FestivalActivity : AppCompatActivity() {
     lateinit var app: MainApp
     private lateinit var imageIntentLauncher: ActivityResultLauncher<Intent> // initialise
     private lateinit var mapIntentLauncher: ActivityResultLauncher<Intent> // initialise
-
     var edit = false
 
     // variables for datePicker
@@ -71,6 +70,7 @@ class FestivalActivity : AppCompatActivity() {
                     }
                 }
         }
+
         // create a spinner for type
         val spinner2 = findViewById<Spinner>(R.id.countyspinner)
 
@@ -156,14 +156,8 @@ class FestivalActivity : AppCompatActivity() {
         }
         registerImagePickerCallback()
         registerMapCallback()
+        // registerCountyCallback()
     }
-
-    //Try below
-    /*fun DatePicker.getDate(): Date {
-        val calendar = Calendar.getInstance()
-        calendar.set(year, month, dayOfMonth)
-        return calendar.time
-    }*/
 
     //  main menu
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -231,3 +225,5 @@ class FestivalActivity : AppCompatActivity() {
             }
     }
 }
+
+
