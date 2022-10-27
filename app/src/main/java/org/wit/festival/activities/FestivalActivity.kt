@@ -53,7 +53,6 @@ class FestivalActivity : AppCompatActivity() {
             val arrayAdapter =
                 ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, counties)
             spinner.adapter = arrayAdapter
-
             binding.countyspinner.onItemSelectedListener =
                 object : AdapterView.OnItemSelectedListener {
                     override fun onItemSelected(
@@ -61,7 +60,10 @@ class FestivalActivity : AppCompatActivity() {
                         view: View?,
                         position: Int,
                         id: Long
-                    ) {
+                    ) {/*{if (county != null) {
+                        val spinnerPosition = adapter.getPosition(county)
+                        spinner.setSelection(spinnerPosition)
+                    }*/
                         county.text = " ${counties.get(position).toString()}"
                     }
 

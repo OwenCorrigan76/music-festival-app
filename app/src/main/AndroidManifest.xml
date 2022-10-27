@@ -13,6 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Festival">
+        <activity
+            android:name=".Login"
+            android:exported="false" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -22,20 +25,20 @@
             android:name=".activities.MapActivity"
             android:exported="false"
             android:label="@string/title_activity_map" />
-
         <activity
             android:name=".activities.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".activities.FestivalListActivity"></activity>
-        <activity android:name=".activities.FestivalDates"></activity>
+        <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.FestivalListActivity" />
+        <activity android:name=".activities.FestivalDates" />
         <activity android:name=".activities.FestivalActivity" />
         <activity android:name=".activities.FestivalMapsActivity" />
-
     </application>
+
 </manifest>
