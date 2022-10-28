@@ -9,8 +9,8 @@ data class FestivalModel(
     var id: Long = 0,
     var title: String = "",
     var description: String = "",
-    var county: String = "",
-    var date: String = "" ,
+    var location: String = "",
+    var date: String = "",
     var image: Uri = Uri.EMPTY,  // default value is empty Uri
     var lat: Double = 0.0,
     var lng: Double = 0.0,

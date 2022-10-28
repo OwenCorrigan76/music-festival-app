@@ -46,7 +46,7 @@ class FestivalJSONStore(private val context: Context) : FestivalStore {
         if (foundFestival != null) {
             foundFestival.title = festival.title
             foundFestival.description = festival.description
-            foundFestival.county = festival.county
+            foundFestival.location = festival.location
             foundFestival.date = festival.date
             foundFestival.image = festival.image
             foundFestival.lat = festival.lat

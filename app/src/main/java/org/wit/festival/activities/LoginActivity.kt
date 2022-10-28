@@ -11,7 +11,7 @@ import com.google.android.material.button.MaterialButton
 import org.wit.festival.R
 
 class LoginActivity : AppCompatActivity() {
-    private lateinit var refreshIntentLauncher : ActivityResultLauncher<Intent>
+   // private lateinit var refreshIntentLauncher : ActivityResultLauncher<Intent>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

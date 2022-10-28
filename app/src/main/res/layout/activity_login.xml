@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.LoginActivity">
+    android:background="@color/torq">
+
+tools:context=".activities.LoginActivity">
 
     <TextView
         android:id="@+id/signin"
@@ -17,7 +19,7 @@
         android:gravity="center"
         android:text="Sign in"
         android:textColor="@color/black"
-        android:textSize="35dp"
+        android:textSize="38dp"
         android:textStyle="bold" />
 
     <EditText
@@ -29,13 +31,14 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:background="#30ffffff"
+        android:background="?attr/colorControlHighlight"
         android:drawableLeft="@drawable/ic_baseline_person_outline_24"
         android:drawablePadding="20dp"
         android:hint="Username"
         android:padding="20dp"
         android:textColor="@color/black"
-        android:textColorHint="@color/black" />
+        android:textColorHint="@color/black"
+        android:textSize="19dp" />
 
     <EditText
         android:id="@+id/password"
@@ -46,25 +49,28 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:background="#30ffffff"
+        android:background="?attr/colorControlHighlight"
         android:drawableLeft="@drawable/ic_baseline_info_24"
         android:drawablePadding="20dp"
         android:hint="Password"
         android:inputType="textPassword"
         android:padding="20dp"
         android:textColor="@color/black"
-        android:textColorHint="@color/black" />
+        android:textColorHint="@color/black"
+        android:textSize="19dp" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/loginbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/loginbtn"
         android:layout_below="@id/password"
-        android:text="LOGIN"
-        android:backgroundTint="@color/design_default_color_secondary"
         android:layout_centerHorizontal="true"
-        android:layout_margin="20dp"
-        />
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/purple_700"
+        android:text="LOGIN" />
 
     <TextView
         android:layout_width="wrap_content"

@@ -29,6 +29,9 @@ class FestivalActivity : AppCompatActivity() {
     lateinit var app: MainApp
     private lateinit var imageIntentLauncher: ActivityResultLauncher<Intent> // initialise
     private lateinit var mapIntentLauncher: ActivityResultLauncher<Intent> // initialise
+    var location = Location(52.245696, -7.139102, 15f)
+
+
     var edit = false
 
     // variables for datePicker
@@ -45,37 +48,34 @@ class FestivalActivity : AppCompatActivity() {
         binding.toolbarAdd.title = title
         setSupportActionBar(binding.toolbarAdd)
 
-        val spinner = findViewById<Spinner>(R.id.countyspinner)
-        val county = findViewById<TextView>(R.id.county)
+        val spinner = findViewById<Spinner>(R.id.typespinner)
+        val type = findViewById<TextView>(R.id.description)
         val res: Resources = resources
         if (spinner != null) {
-            val counties = res.getStringArray(R.array.counties_list)
+            val types = res.getStringArray(R.array.type_list)
             val arrayAdapter =
-                ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, counties)
+                ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, types)
             spinner.adapter = arrayAdapter
-            binding.countyspinner.onItemSelectedListener =
+            binding.typespinner.onItemSelectedListener =
                 object : AdapterView.OnItemSelectedListener {
                     override fun onItemSelected(
                         parent: AdapterView<*>,
                         view: View?,
                         position: Int,
                         id: Long
-                    ) {/*{if (county != null) {
-                        val spinnerPosition = adapter.getPosition(county)
-                        spinner.setSelection(spinnerPosition)
-                    }*/
-                        county.text = " ${counties.get(position).toString()}"
+                    ) {
+                        if (type != null) {
+                            val spinnerPosition = arrayAdapter.getPosition(festival.description)
+                            spinner.setSelection(spinnerPosition)
+                        }
+                        type.text = " ${types.get(position).toString()}"
                     }
 
                     override fun onNothingSelected(parent: AdapterView<*>?) {
-                        county.text = "please select a county"
+                        type.text = "please select a festival type"
                     }
                 }
         }
-
-        // create a spinner for type
-        val spinner2 = findViewById<Spinner>(R.id.countyspinner)
-
 
         // initialise main app
         app = application as MainApp
@@ -87,7 +87,7 @@ class FestivalActivity : AppCompatActivity() {
             festival = intent.extras?.getParcelable("festival_edit")!!
             binding.festivalTitle.setText(festival.title)
             binding.description.setText(festival.description)
-            binding.county.setText(festival.county)
+            binding.location.setText(festival.location)
             binding.btnAdd.setText(R.string.save_festival)
             binding.festivalLocation.setOnClickListener {
                 i("Set Location Pressed")
@@ -105,7 +105,7 @@ class FestivalActivity : AppCompatActivity() {
         binding.btnAdd.setOnClickListener() {
             festival.title = binding.festivalTitle.text.toString()
             festival.description = binding.description.text.toString()
-            festival.county = binding.county.text.toString()
+            festival.location = binding.location.text.toString()
             festival.date = binding.dateView.text.toString()
             if (festival.title.isEmpty()) {
                 Toast.makeText(this, R.string.enter_festival_title, Toast.LENGTH_LONG)
@@ -138,7 +138,6 @@ class FestivalActivity : AppCompatActivity() {
         val toast = "Today's Date Is : $day/$month/$year"
         Toast.makeText(this, toast, Toast.LENGTH_SHORT).show()
 
-
         // add an image button
         binding.chooseImage.setOnClickListener {
             showImagePicker(imageIntentLauncher)
@@ -146,16 +145,11 @@ class FestivalActivity : AppCompatActivity() {
 
         // set location button
         binding.festivalLocation.setOnClickListener { // launch maps and pass location to MapActivity
-            val location = Location(52.245696, -7.139102, 15f)
-            if (festival.zoom != 0f) {
-                location.lat = festival.lat
-                location.lng = festival.lng
-                location.zoom = festival.zoom
-            }
             val launcherIntent = Intent(this, MapActivity::class.java)
                 .putExtra("location", location)
             mapIntentLauncher.launch(launcherIntent)
         }
+
         registerImagePickerCallback()
         registerMapCallback()
         // registerCountyCallback()
