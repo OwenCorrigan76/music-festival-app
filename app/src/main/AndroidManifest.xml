@@ -32,7 +32,6 @@
         </activity>
         <activity android:name=".activities.LoginActivity" />
         <activity android:name=".activities.FestivalListActivity" />
-        <activity android:name=".activities.FestivalDates" />
         <activity android:name=".activities.FestivalActivity" />
         <activity android:name=".activities.FestivalMapsActivity" />
     </application>

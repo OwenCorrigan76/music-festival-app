@@ -98,17 +98,17 @@
                 <Spinner
                     android:id="@+id/typespinner"
                     android:layout_width="match_parent"
-                    android:layout_height="20dp"
+                    android:layout_height="36dp"
                     android:layout_margin="8dp"
                     android:layout_weight="1"
-                    android:background="@color/torq"
+                    android:background="@color/colorAccent"
                     android:inputType="text"
                     android:maxLength="30"
                     android:maxLines="1"
-                    android:padding="2dp"
+                    android:padding="158dp"
                     android:spinnerMode="dropdown"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
+                    android:textSize="30sp"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                 <Button
@@ -166,6 +166,22 @@
                     android:textColor="@color/black"
                     android:textSize="24sp" />
 
+               <!-- <Spinner
+                    android:id="@+id/countyspinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorAccent"
+                    android:inputType="text"
+                    android:maxLength="30"
+                    android:maxLines="1"
+                    android:padding="158dp"
+                    android:spinnerMode="dropdown"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+-->
                 <TextView
                     android:id="@+id/dateView"
                     android:layout_width="match_parent"
@@ -181,6 +197,38 @@
                     android:paddingBottom="2dp"
                     android:textColor="@color/black"
                     android:textSize="24sp" />
+                <TextView
+                    android:id="@+id/lat"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_margin="8dp"
+                    android:background="@color/torq"
+                    android:hint="@string/hint_festivalLatitude"
+                    android:maxLength="30"
+                    android:maxLines="1"
+                    android:padding="8dp"
+                    android:visibility="invisible"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:textColor="@color/black"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/lng"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_margin="8dp"
+                    android:background="@color/torq"
+                    android:hint="@string/hint_festivalLongitude"
+                    android:maxLength="30"
+                    android:visibility="invisible"
+                    android:maxLines="1"
+                    android:padding="8dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:textColor="@color/black"
+                    android:textSize="24sp" />
+
 
             </LinearLayout>
         </ScrollView>

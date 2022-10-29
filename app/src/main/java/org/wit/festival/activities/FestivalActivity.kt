@@ -76,6 +76,34 @@ class FestivalActivity : AppCompatActivity() {
                     }
                 }
         }
+      /*  val spinner2 = findViewById<Spinner>(R.id.countyspinner)
+        val county = findViewById<TextView>(R.id.location)
+        val res2: Resources = resources
+        if (spinner2 != null) {
+            val counties = res2.getStringArray(R.array.counties_list)
+            val arrayAdapter =
+                ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, counties)
+            spinner2.adapter = arrayAdapter
+            binding.typespinner.onItemSelectedListener =
+                object : AdapterView.OnItemSelectedListener {
+                    override fun onItemSelected(
+                        parent: AdapterView<*>,
+                        view: View?,
+                        position: Int,
+                        id: Long
+                    ) {
+                        if (county != null) {
+                            val spinnerPosition = arrayAdapter.getPosition(festival.location)
+                            spinner.setSelection(spinnerPosition)
+                        }
+                        county.text = " ${counties.get(position).toString()}"
+                    }
+
+                    override fun onNothingSelected(parent: AdapterView<*>?) {
+                        county.text = "please select a county"
+                    }
+                }
+        }*/
 
         // initialise main app
         app = application as MainApp
@@ -221,5 +249,3 @@ class FestivalActivity : AppCompatActivity() {
             }
     }
 }
-
-

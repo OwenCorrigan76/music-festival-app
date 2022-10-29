@@ -6,6 +6,8 @@
     <string name="hint_festivalDescription">Type</string>
     <string name="button_addDescription">Add Description</string>
     <string name="hint_festivalLocation">Location</string>
+    <string name="hint_festivalLatitude">Latitude</string>
+    <string name="hint_festivalLongitude">Longitude</string>
     <string name="menu_addFestival">Music Festivals</string>
     <string name="menu_cancelButton">Cancel</string>
     <string name="menu_deleteButton">Delete</string>
@@ -16,7 +18,7 @@
     <string name="enter_festival_value">Please Enter a value</string>
     <string name="enter_festival_location">Please Enter Location</string>
     <string name="save_festival">Save a Festival</string>
-    <string name="pick_location">Location</string>
+    <string name="pick_location">County</string>
     <string name="button_addImage">Add an Image</string>
     <string name="change_festival_image">Change Image</string>
     <string name="select_festival_image">Select festival image</string>
@@ -29,6 +31,41 @@
     <string name="festival_description_placeholder">Festival Description</string>
     <string name="title_activity_map">MapActivity</string>
     <string name="splash_text">Festival App</string>
+
+    <string-array name="counties_list">
+        <item>Antrim</item>
+        <item>Armagh</item>
+        <item>Carlow</item>
+        <item>Cavan</item>
+        <item>Clare</item>
+        <item>Cork</item>
+        <item>Derry</item>
+        <item>Donegal</item>
+        <item>Down</item>
+        <item>Dublin</item>
+        <item>Fermanagh</item>
+        <item>Galway</item>
+        <item>Kerry</item>
+        <item>Kildare</item>
+        <item>Kilkenny</item>
+        <item>Laois</item>
+        <item>Leitrim</item>
+        <item>Limerick</item>
+        <item>Longford</item>
+        <item>Louth</item>
+        <item>Mayo</item>
+        <item>Meath</item>
+        <item>Monaghan</item>
+        <item>Offaly</item>
+        <item>Roscommon</item>
+        <item>Sligo</item>
+        <item>Tipperary</item>
+        <item>Tyrone</item>
+        <item>Waterford</item>
+        <item>Westmeath</item>
+        <item>Wexford</item>
+        <item>Wicklow</item>
+    </string-array>
 
     <string-array name="type_list">
         <item>Arts</item>

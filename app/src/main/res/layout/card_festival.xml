@@ -59,6 +59,31 @@
             android:textColor="@color/black"
             tools:text="A Location" />
 
+
+        <TextView
+            android:id="@+id/lat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/description"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="133dp"
+            android:layout_marginTop="-18dp"
+            android:textColor="@color/black"
+            android:textStyle="italic"
+            tools:text="Latitude" />
+
+        <TextView
+            android:id="@+id/lng"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/description"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="98dp"
+            android:layout_marginTop="7dp"
+            android:textColor="@color/black"
+            android:textStyle="italic"
+            tools:text="Longitude" />
+
         <TextView
             android:id="@+id/dateView"
             android:layout_width="wrap_content"

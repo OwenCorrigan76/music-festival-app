@@ -47,6 +47,8 @@ class FestivalAdapter constructor(
             binding.festivalTitle.text = festival.title
             binding.description.text = festival.description
             binding.location.text = festival.location
+            binding.lat.text = festival.lat.toString()
+            binding.lng.text = festival.lng.toString()
             binding.dateView.text = festival.date
             Picasso.get().load(festival.image).resize(200, 200).into(binding.imageIcon)
             binding.root.setOnClickListener { listener.onFestivalClick(festival) }
