@@ -1,4 +1,6 @@
 # Music Festival App
+This repository is part of the HDip in Computer Science course in SETU.
+
 Version 1
 
 This repository contains an Android Studio application, written in Kotlin. The applications does the following:
