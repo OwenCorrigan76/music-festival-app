@@ -35,7 +35,10 @@
             android:id="@+id/festivalTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="2dp"
             android:fontFamily="@font/robot4"
             android:textColor="@color/redish"
             android:textSize="36sp"
@@ -59,15 +62,14 @@
             android:textColor="@color/black"
             tools:text="A Location" />
 
-
         <TextView
             android:id="@+id/lat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/description"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="133dp"
-            android:layout_marginTop="-18dp"
+            android:layout_marginStart="111dp"
+            android:layout_marginTop="-15dp"
             android:textColor="@color/black"
             android:textStyle="italic"
             tools:text="Latitude" />
@@ -78,8 +80,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/description"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="98dp"
-            android:layout_marginTop="7dp"
+            android:layout_marginStart="101dp"
+            android:layout_marginTop="31dp"
             android:textColor="@color/black"
             android:textStyle="italic"
             tools:text="Longitude" />

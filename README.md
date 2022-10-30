@@ -1,5 +1,5 @@
 # Music Festival App
-This repository is part of the HDip in Computer Science course in SETU.
+This repository is part of the Android App Development module on the HDip in Computer Science course in SETU.
 
 Version 1
 
