@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/festivalFragment">
+
+    <fragment
+        android:id="@+id/festivalFragment"
+        android:name="org.wit.festival.FestivalFragment"
+        android:label="fragment_festical"
+        tools:layout="@layout/fragment_festival" />
+    <fragment
+        android:id="@+id/festivalListFragment"
+        android:name="org.wit.festival.FestivalListFragment"
+        android:label="fragment_festival_list"
+        tools:layout="@layout/fragment_festival_list" />
+</navigation>
