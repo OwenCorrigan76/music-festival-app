@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="org.wit.festival">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
 
     <application
         android:name=".main.MainApp"
@@ -14,22 +16,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Festival">
         <activity
-            android:name=".activities.Home"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
+            android:name=".activities.FestivalMapsActivity"
+            android:exported="true"
+            android:label="@string/title_activity_festival_maps"
+            android:theme="@style/Theme.Festival.NoActionBar" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="${MAPS_API_KEY}" />
 
         <activity
             android:name=".activities.MapActivity"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/title_activity_map" />
         <activity
             android:name=".activities.SplashActivity"
@@ -40,10 +37,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.FestivalActivity" />
         <activity android:name=".activities.LoginActivity" />
         <activity android:name=".activities.FestivalListActivity" />
-        <activity android:name=".activities.FestivalActivity" />
-        <activity android:name=".activities.FestivalMapsActivity" />
     </application>
 
 </manifest>

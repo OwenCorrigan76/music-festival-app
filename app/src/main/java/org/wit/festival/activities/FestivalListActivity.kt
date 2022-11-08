@@ -49,7 +49,7 @@ class FestivalListActivity : AppCompatActivity(), FestivalListener {
         when (item.itemId) {
             R.id.item_add -> {
                 val launcherIntent = Intent(this, FestivalActivity::class.java)
-                refreshIntentLauncher.launch(launcherIntent) // refresh page with new content
+                refreshIntentLauncher.launch(launcherIntent)
             }
             R.id.item_map -> {
                 val launcherIntent = Intent(this, FestivalMapsActivity::class.java)
@@ -63,12 +63,6 @@ class FestivalListActivity : AppCompatActivity(), FestivalListener {
     override fun onFestivalClick(festival: FestivalModel) {
         val launcherIntent = Intent(this, FestivalActivity::class.java)
         launcherIntent.putExtra("festival_edit", festival)
-        refreshIntentLauncher.launch(launcherIntent)
-    }
-
-    fun onDateClick(festival: FestivalModel) {
-        val launcherIntent = Intent(this, FestivalActivity::class.java)
-        launcherIntent.putExtra("date_edit", festival)
         refreshIntentLauncher.launch(launcherIntent)
     }
 

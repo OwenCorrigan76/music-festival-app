@@ -31,6 +31,10 @@
     <string name="festival_description_placeholder">Festival Description</string>
     <string name="title_activity_map">MapActivity</string>
     <string name="splash_text">Festival App</string>
+    <string name="google_maps_key">Google Maps</string>
+
+
+
 
     <string-array name="counties_list">
         <item>Antrim</item>

@@ -10,8 +10,8 @@ android {
 
     defaultConfig {
         applicationId "org.wit.festival"
-        minSdk 28
-        targetSdk 31
+        minSdk 30
+        targetSdk 33
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
