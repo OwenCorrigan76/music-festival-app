@@ -34,8 +34,6 @@
     <string name="google_maps_key">Google Maps</string>
 
 
-
-
     <string-array name="counties_list">
         <item>Antrim</item>
         <item>Armagh</item>
